@@ -31,7 +31,6 @@ class Network(minitorch.Module):
     def forward(self, x):
         z = self.layer1.forward(x).relu()
         out = self.layer2.forward(z).relu()
-
         return self.layer3.forward(out).sigmoid()
 
 
