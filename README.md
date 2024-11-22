@@ -351,7 +351,7 @@ None
 
 Task 3.4:
 
-![3.4 Graph](threepointfourgraph.png)
+![3.4 Graph](imwges/threepointfourgraph.png)
 
 /usr/local/lib/python3.12/dist-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 2 will likely result in GPU under-utilization due to low occupancy.
   warn(NumbaPerformanceWarning(msg))
@@ -392,19 +392,19 @@ Size: 1024
 
 Task 3.5:
 
-![GPU - split, 100 hidden](gpusplit100.png)
+![GPU - split, 100 hidden](images/gpusplit100.png)
 
 
-![CPU - split, 100 hidden](cpusplit100.png)
+![CPU - split, 100 hidden](images/cpusplit100.png)
 
 
-![GPU - diagonal, 150 hidden](gpudiagonal150.png)
-~
-
-![CPU - diagonal, 150 hidden](cpudiagonal150.png)
+![GPU - diagonal, 150 hidden](images/gpudiagonal150.png)
 
 
-![GPU - xor, 200 hidden](gpuxor200.png)
+![CPU - diagonal, 150 hidden](images/cpudiagonal150.png)
 
 
-![CPU - xor, 200 hidden](cpuxor200.png)
+![GPU - xor, 200 hidden](images/gpuxor200.png)
+
+
+![CPU - xor, 200 hidden](images/cpuxor200.png)
