@@ -30,6 +30,7 @@ class Network(minitorch.Module):
     def forward(self, x):
         z = self.layer1.forward(x).relu()
         out = self.layer2.forward(z).relu()
+
         return self.layer3.forward(out).sigmoid()
 
 
@@ -124,7 +125,7 @@ if __name__ == "__main__":
     if args.DATASET == "xor":
         data = minitorch.datasets["Xor"](PTS)
     elif args.DATASET == "simple":
-        data = minitorch.datasets["Simple"].simple(PTS)
+        data = minitorch.datasets["Simple"](PTS)
     elif args.DATASET == "split":
         data = minitorch.datasets["Split"](PTS)
 
