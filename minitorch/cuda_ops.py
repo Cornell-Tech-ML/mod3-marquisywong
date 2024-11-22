@@ -489,8 +489,53 @@ def _tensor_matrix_multiply(
     #    a) Copy into shared memory for a matrix.
     #    b) Copy into shared memory for b matrix
     #    c) Compute the dot produce for position c[i, j]
-    # TODO: Implement for Task 3.4.
-    raise NotImplementedError("Need to implement for Task 3.4")
+    
+    assert a_shape[-1] == b_shape[-2]
+    acc = 0.0
+
+
+    for block in range(0, a_shape[-1], BLOCK_DIM):
+        #subblock a
+        a_i = i
+        a_j = block + pj
+        if a_i < a_shape[-2] and a_j < a_shape[-1]:
+            a_shared[pi, pj] = a_storage[
+                batch * a_batch_stride + 
+                a_i * a_strides[-2] +
+                a_j * a_strides[-1]
+            ]
+        else:
+            a_shared[pi, pj] = 0.0  #out of bounds elems
+
+
+        b_i = block + pi
+        b_j = j
+
+
+        if b_i < a_shape[-1] and b_j < b_shape[-1]:
+            b_shared[pi, pj] = b_storage[
+                batch * b_batch_stride +
+                b_i * b_strides[-2] +
+                b_j * b_strides[-1]
+            ]
+        else:
+            b_shared[pi, pj] = 0.0  #out of boudns elems
+
+
+        cuda.syncthreads()
+
+        #partial dot product for this block
+        for k in range(min(BLOCK_DIM, a_shape[-1] - block)):
+
+            acc += a_shared[pi, k] * b_shared[k, pj]
+
+
+        cuda.syncthreads()
+
+    if i < a_shape[-2] and j < b_shape[-1]:
+        out[batch * out_strides[0] + i * out_strides[1] + j * out_strides[2]] = acc
+
+
 
 
 tensor_matrix_multiply = jit(_tensor_matrix_multiply)
