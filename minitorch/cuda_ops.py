@@ -493,11 +493,13 @@ def _tensor_matrix_multiply(
     assert a_shape[-1] == b_shape[-2]
     acc = 0.0
 
-
+    # loop over blocks of size `BLOCK_DIM` 
     for block in range(0, a_shape[-1], BLOCK_DIM):
         #subblock a
         a_i = i
         a_j = block + pj
+
+
         if a_i < a_shape[-2] and a_j < a_shape[-1]:
             a_shared[pi, pj] = a_storage[
                 batch * a_batch_stride + 
@@ -507,7 +509,7 @@ def _tensor_matrix_multiply(
         else:
             a_shared[pi, pj] = 0.0  #out of bounds elems
 
-
+        #subblock b into shared mem
         b_i = block + pi
         b_j = j
 
@@ -521,7 +523,7 @@ def _tensor_matrix_multiply(
         else:
             b_shared[pi, pj] = 0.0  #out of boudns elems
 
-
+        #sync threads
         cuda.syncthreads()
 
         #partial dot product for this block
@@ -532,6 +534,7 @@ def _tensor_matrix_multiply(
 
         cuda.syncthreads()
 
+    #final result out to global memory, if its the right shape
     if i < a_shape[-2] and j < b_shape[-1]:
         out[batch * out_strides[0] + i * out_strides[1] + j * out_strides[2]] = acc
 

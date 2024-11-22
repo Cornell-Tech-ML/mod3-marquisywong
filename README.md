@@ -344,3 +344,51 @@ Parallel structure is already optimal.
 Allocation hoisting:
 No allocation hoisting found
 None
+
+
+
+
+
+Task 3.4:
+
+![3.4 Graph](threepointfourgraph.png)
+
+/usr/local/lib/python3.12/dist-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 2 will likely result in GPU under-utilization due to low occupancy.
+  warn(NumbaPerformanceWarning(msg))
+/usr/local/lib/python3.12/dist-packages/numba/cuda/cudadrv/devicearray.py:888: NumbaPerformanceWarning: Host array used in CUDA kernel will incur copy overhead to/from device.
+  warn(NumbaPerformanceWarning(msg))
+Running size 64
+/usr/local/lib/python3.12/dist-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 8 will likely result in GPU under-utilization due to low occupancy.
+  warn(NumbaPerformanceWarning(msg))
+{'fast': np.float64(0.007002830505371094), 'gpu': np.float64(0.010834217071533203)}
+Running size 128
+/usr/local/lib/python3.12/dist-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 32 will likely result in GPU under-utilization due to low occupancy.
+  warn(NumbaPerformanceWarning(msg))
+{'fast': np.float64(0.027009010314941406), 'gpu': np.float64(0.020455201466878254)}
+Running size 256
+{'fast': np.float64(0.164735476175944), 'gpu': np.float64(0.07354847590128581)}
+Running size 512
+{'fast': np.float64(1.3219787279764812), 'gpu': np.float64(0.20335078239440918)}
+Running size 1024
+{'fast': np.float64(8.680046240488688), 'gpu': np.float64(0.912109375)}
+
+Timing summary
+Size: 64
+    fast: 0.00700
+    gpu: 0.01083
+Size: 128
+    fast: 0.02701
+    gpu: 0.02046
+Size: 256
+    fast: 0.16474
+    gpu: 0.07355
+Size: 512
+    fast: 1.32198
+    gpu: 0.20335
+Size: 1024
+    fast: 8.68005
+    gpu: 0.91211
+
+
+
+
