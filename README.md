@@ -391,4 +391,55 @@ Size: 1024
 
 
 Task 3.5:
+!cd $DIR; PYTHONPATH=/content/$DIR python3.12 project/run_fast_tensor.py --BACKEND gpu --HIDDEN 100 --DATASET split --RATE 0.05
+Epoch  0  loss  8.103617195028985 correct 26
+Epoch  10  loss  5.825488740964957 correct 42
+Epoch  20  loss  4.188962668111611 correct 44
+Epoch  30  loss  4.493786870889356 correct 46
+Epoch  40  loss  4.348288489190148 correct 46
+Epoch  50  loss  3.8993392712907724 correct 47
+Epoch  60  loss  3.617435685106444 correct 49
+Epoch  70  loss  2.179859853548842 correct 48
+Epoch  80  loss  2.2084956516420586 correct 47
+Epoch  90  loss  1.3085798324648525 correct 49
+Epoch  100  loss  5.849945705500515 correct 43
+Epoch  110  loss  2.942275399037138 correct 49
+Epoch  120  loss  0.3749099148941203 correct 49
+Epoch  130  loss  1.2067512213427938 correct 49
+Epoch  140  loss  1.6143423535152561 correct 46
+Epoch  150  loss  0.7105327166995582 correct 50
+Epoch  160  loss  1.6758113819126197 correct 50
+Epoch  170  loss  1.5734538990655198 correct 48
+Epoch  180  loss  1.01398860173995 correct 50
+Epoch  190  loss  2.525937550050106 correct 47
+Epoch  200  loss  0.4186343602497854 correct 47
+Epoch  210  loss  0.8403851157144074 correct 48
+Epoch  220  loss  0.5911170553318343 correct 49
+Epoch  230  loss  0.4235049837696682 correct 49
+Epoch  240  loss  0.655561940298435 correct 49
+Epoch  250  loss  0.916502881611854 correct 50
+Epoch  260  loss  1.3640847145683244 correct 50
+Epoch  270  loss  0.41679078140720477 correct 50
+Epoch  280  loss  0.2804275942525735 correct 49
+Epoch  290  loss  1.6434851028321993 correct 50
+Epoch  300  loss  1.0725803516283732 correct 50
+Epoch  310  loss  0.7118774266553561 correct 49
+Epoch  320  loss  0.12816616181096624 correct 50
+Epoch  330  loss  0.5659614828823417 correct 49
+Epoch  340  loss  0.6554064732956527 correct 50
+Epoch  350  loss  0.9117049969921138 correct 50
+Epoch  360  loss  0.6666458346050442 correct 50
+Epoch  370  loss  0.3757903231480096 correct 48
+Epoch  380  loss  0.6207788465504561 correct 47
+Epoch  390  loss  1.1534618724302284 correct 47
+Epoch  400  loss  0.6183923731111534 correct 50
+Epoch  410  loss  0.919749211386973 correct 50
+Epoch  420  loss  1.1230646928237233 correct 47
+Epoch  430  loss  1.1800670003811295 correct 49
+Epoch  440  loss  0.3083388760863281 correct 50
+Epoch  450  loss  0.46020219006305774 correct 50
+Epoch  460  loss  0.6171931383621737 correct 50
+Epoch  470  loss  0.3369694484094307 correct 49
+Epoch  480  loss  1.0500714914082985 correct 50
+Epoch  490  loss  2.0283058868132624 correct 44
 
