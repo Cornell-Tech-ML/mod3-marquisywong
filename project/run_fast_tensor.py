@@ -59,13 +59,15 @@ class FastTrain:
     def run_many(self, X):
         return self.model.forward(minitorch.tensor(X, backend=self.backend))
 
-    def train(self, data, learning_rate, max_epochs=500, log_fn=default_log_fn):
+ def train(self, data, learning_rate, max_epochs=500, log_fn=default_log_fn):
         self.model = Network(self.hidden_layers, self.backend)
         optim = minitorch.SGD(self.model.parameters(), learning_rate)
         BATCH = 10
         losses = []
+        epoch_times = []
 
         for epoch in range(max_epochs):
+            start_time = time.time()
             total_loss = 0.0
             c = list(zip(data.X, data.y))
             random.shuffle(c)
@@ -89,9 +91,7 @@ class FastTrain:
             end_time = time.time()
             epoch_time = end_time - start_time
 
-
             epoch_times.append(epoch_time)
-
             losses.append(total_loss)
             # Logging
             if epoch % 10 == 0 or epoch == max_epochs:
