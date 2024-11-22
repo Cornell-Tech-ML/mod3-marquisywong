@@ -1,6 +1,7 @@
 import random
 import numba
 import minitorch
+import time
 
 datasets = minitorch.datasets
 FastTensorBackend = minitorch.TensorBackend(minitorch.FastOps)
