@@ -35,7 +35,6 @@ The files that will be synced are:
 Task 3.1 & 3.2, output from:
 python project/parallel_check.py 
 
-(.venv) marquiswong@whale mod3-marquisywong % python project/parallel_check.py
 MAP
  
 ================================================================================
@@ -351,7 +350,7 @@ None
 
 Task 3.4:
 
-![3.4 Graph](imwges/threepointfourgraph.png)
+![3.4 Graph](images/threepointfourgraph.png)
 
 /usr/local/lib/python3.12/dist-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 2 will likely result in GPU under-utilization due to low occupancy.
   warn(NumbaPerformanceWarning(msg))
