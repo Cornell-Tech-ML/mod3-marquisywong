@@ -1,7 +1,5 @@
 import random
-
 import numba
-
 import minitorch
 
 datasets = minitorch.datasets
